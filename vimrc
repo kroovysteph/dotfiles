@@ -1,3 +1,4 @@
+filetype plugin on
 
 set ruler laststatus=3 number title hlsearch
 syntax on
