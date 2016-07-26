@@ -1,4 +1,4 @@
-filetype plugin on
+filetype off
 
 set ruler laststatus=3 number title hlsearch
 syntax on
@@ -6,8 +6,8 @@ syntax on
 " verkuerzt die Breite von <Tab> auf 4
 set tabstop=4
 
-" dient dazu unsichtbare Tabs sichtbar zu machen
-set listchars=tab:>\ ,
+" dient dazu unsichtbare zeichen sichtbar zu machen
+set listchars=tab:▸\ ,
 set list
 hi SpecialKey ctermfg=7
 
@@ -27,13 +27,20 @@ colorscheme molokai
 " lagert die swap-dateien aus
 set directory=~/.vim/swap//,.
 
+" toggles NERDTree with Ctrl+N
+map <C-n> :NERDTreeToggle<CR>
 
-" ================ plugins =================
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Vundle Configuration
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-" Bundles
-Bundle 'VundleVim/Vundle.vim'
-Bundle 'kroovysteph/snipmate.vim'
+" plugin on GitHub repo
+Plugin 'kroovysteph/snipmate.vim'
+Plugin 'scrooloose/nerdtree'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
